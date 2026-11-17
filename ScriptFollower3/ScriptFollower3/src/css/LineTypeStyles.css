@@ -1,0 +1,86 @@
+/* Line Type Specific Styles */
+.line-type-title { border-left-color: var(--line-type-title); }
+.line-type-subtitle { border-left-color: var(--line-type-subtitle); }
+.line-type-act-heading { border-left-color: var(--line-type-act-heading); }
+.line-type-scene-heading { border-left-color: var(--line-type-scene-heading); }
+.line-type-character-list { border-left-color: var(--line-type-character-list); }
+.line-type-dialogue { border-left-color: var(--line-type-dialogue); }
+.line-type-stage-direction { border-left-color: var(--line-type-stage-direction); }
+
+.script-line.line-type-tech-cue .line-content .line-text,
+.script-line.line-type-light-cue .line-content .line-text,
+.script-line.line-type-sound-cue .line-content .line-text
+{
+  color: var(--color-text-on-primary);
+}
+
+/* Tech Cue */
+.script-line.line-type-tech-cue {
+  background-color: var(--color-cue-tech-bg);
+}
+
+/* Sound Cue */
+.script-line.line-type-sound-cue {
+  background-color: var(--color-cue-sound-bg);
+  padding: 0 3px 0 3px;
+}
+
+/* Light Cue */
+.script-line.line-type-light-cue {
+  background-color: var(--color-cue-light-bg);
+  padding: 0 0 0 3px;
+}
+
+.line-type-blank { border-left-color: var(--line-type-blank); }
+
+/* Specific Line Subtype Styles for Sound Cue */
+.script-line.line-type-sound-cue.line-subtype-a {
+  background-color: var(--color-cue-sound-bg);
+}
+
+.script-line.line-type-sound-cue.line-subtype-b {
+  background-color: var(--color-cue-sound-alt-bg);
+}
+
+.script-line.line-type-tech-cue.line-subtype-curtains {
+  background-color: var(--color-cue-curtains-bg);
+}
+
+.line-type-page-number {
+  background-color: var(--color-page-number-bg);
+}
+
+/* Specific Line Type Styles */
+.line-type-title {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1em;
+  color: var(--line-type-title);
+}
+
+.line-type-title.line-subtype-subtitle {
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0.5em;
+  color: var(--line-type-subtitle);
+}
+
+.line-type-scene-heading, .line-type-act-heading {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--palette-gray-800);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 5px;
+}
+
+.line-type-stage-direction .line-content {
+  font-style: italic;
+  text-align: left;
+  max-width: 70%;
+  margin: 0 auto;
+  color: var(--line-type-stage-direction);
+}

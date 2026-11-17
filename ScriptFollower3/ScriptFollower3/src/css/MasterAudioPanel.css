@@ -1,0 +1,240 @@
+.master-audio-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px;
+  background: var(--color-background);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section h3 {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.master-main {
+    background: var(--color-shadow-light);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.volume-slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.slider-row input[type="range"] {
+    flex: 1;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.channels-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 12px 4px;
+  background: var(--color-shadow-heavy);
+  border-radius: 8px;
+}
+
+.channel-strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-background-soft);
+  padding: 12px 8px;
+  border-radius: 6px;
+  min-width: 90px;
+  border: 1px solid var(--color-border);
+}
+
+.channel-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.channel-name {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.fader-container {
+    padding: 8px 0;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.channel-strip input[type="range"] {
+  writing-mode: bt-lr; 
+  -webkit-appearance: slider-vertical;
+  width: 12px;
+  height: 100%;
+}
+
+.mute-btn.active {
+    background: var(--color-error);
+    color: var(--color-text-on-primary);
+}
+
+.active-players-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.active-player-item {
+  background: var(--color-shadow-light);
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+.player-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.player-name { 
+    font-weight: 600;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+.player-channel { 
+    font-size: 10px;
+    background: var(--color-primary-dark);
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: var(--color-text-on-primary);
+}
+
+.player-progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--color-shadow-medium);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+}
+
+.time-display {
+    font-family: monospace;
+    font-size: 11px;
+    min-width: 45px;
+    color: var(--color-text-secondary);
+}
+
+.device-select {
+  width: 100%;
+  padding: 6px;
+  background: var(--color-background-soft);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.empty-state-mini {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: 24px;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  background: var(--color-shadow-light);
+}
+
+/* From Vue Component */
+
+.device-select-mini {
+    width: 100%;
+    padding: 2px;
+    font-size: 9px;
+    background: var(--color-background-soft);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.channel-device-mapping {
+    width: 100%;
+}
+
+.limitation-box {
+    margin-top: 12px;
+    padding: 10px;
+    background: var(--color-info-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.limitation-box p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+}
+
+.info-icon {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}

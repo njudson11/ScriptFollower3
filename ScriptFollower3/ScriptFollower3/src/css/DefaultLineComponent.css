@@ -1,0 +1,75 @@
+/* Base Script Line Style (moved from components) */
+.script-line {
+  margin-bottom: 4px;
+  border-left-width: 0;
+  border-left-style: solid;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.5s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  gap: 1px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  flex-direction: column;
+}
+
+.script-line:hover {
+  box-shadow: 0 2px 8px var(--color-shadow-medium);
+  transform: translateX(4px);
+}
+
+.script-line.active {
+  border-color: var(--color-active-line);
+  border-width: 4px;
+  border-style: solid;
+  box-shadow: 0 4px 12px var(--color-shadow-heavy);
+}
+
+/* Also move .line-type-badge, .line-content etc. that are common */
+.line-type-badge {
+  flex-shrink: 0;
+  font-size: 0.75em;
+  font-weight: 600;
+  color: var(--color-text-on-primary);
+  background-color: var(--color-primary);
+  padding: 4px 8px;
+  border-radius: 3px;
+  height: fit-content;
+  text-align: center;
+  min-width: 70px;
+}
+
+.line-type-badge,
+.line-meta {
+  display: none; /* Hide line type and line number */
+}
+
+.line-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.line-text {
+  margin: 0;
+  font-size: 0.8em;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.line-meta {
+  font-size: 0.8em;
+  color: var(--color-text-tertiary);
+  margin-top: 8px;
+}
+
+.context-sidebar .line-annotation{
+  display: none; /* Hide annotations in context sidebar */
+}
+
+.context-sidebar.line-type-scene-heading {
+  margin-top: 5px;
+}

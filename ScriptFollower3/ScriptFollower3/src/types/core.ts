@@ -1,0 +1,344 @@
+import { ACTION_TYPES } from '@/types/actions';
+
+/**
+ * Core type definitions for ScriptFollower 3
+ * Immutable data structures and interfaces
+ */
+
+// Line types for stage play scripts
+export enum LineType {
+  TITLE = 'TITLE',
+  SUBTITLE = 'SUBTITLE',
+  ACT_HEADING = 'ACT_HEADING',
+  SCENE_HEADING = 'SCENE_HEADING',
+  CHARACTER_LIST = 'CHARACTER_LIST',
+  DIALOGUE = 'DIALOGUE',
+  STAGE_DIRECTION = 'STAGE_DIRECTION',
+  TECH_CUE = 'TECH_CUE',
+  SOUND_CUE = 'SOUND_CUE',
+  LIGHT_CUE = 'LIGHT_CUE',
+  PAGE_NUMBER = 'PAGE_NUMBER',
+  BODY_TEXT = 'BODY_TEXT',
+  BLANK = 'BLANK'
+}
+
+/**
+ * Core immutable data structure representing a single script line
+ */
+export interface ScriptLineBase {
+  readonly id: string;
+  readonly documentId: string;
+  readonly lineNumber: number;
+  readonly lineType: LineType;
+  readonly lineSubType?: string;
+  readonly text: string;
+  readonly annotation?: string;
+  readonly metadata: Readonly<Record<string, any>>;
+  readonly pageNumber: number | null; // New: Page number associated with the line
+}
+
+/**
+ * Style information for document formatting
+ */
+export interface StyleInfo {
+  readonly name: string;
+  readonly displayName?: string;
+  readonly parent?: string;
+}
+
+/**
+ * Document structure containing script lines
+ */
+export interface Document {
+  readonly id: string;
+  readonly name: string;
+  readonly format: 'DOCX' | 'ODT' | 'PDF' | 'XML';
+  readonly lines: readonly ScriptLineBase[];
+  readonly styles?: readonly StyleInfo[];
+  readonly version: number;
+  readonly createdAt: Date;
+  readonly updatedAt: Date;
+}
+
+/**
+ * Event emitted through the event bus
+ */
+export interface Event {
+  type: string;
+  payload?: any;
+  timestamp: Date;
+}
+
+/**
+ * Feature data associated with a line
+ */
+export interface FeatureData {
+  readonly featureId: string;
+  readonly lineId: string;
+  readonly data: Readonly<Record<string, any>>;
+}
+
+/**
+ * Highlight information for a line
+ */
+export interface Highlight {
+  readonly lineId: string;
+  readonly type: string;
+  readonly priority: number;
+  readonly expiresAt?: Date;
+  readonly data?: Readonly<Record<string, any>>;
+}
+
+/**
+ * Interface for any object that can be matched by the TextMatcher
+ */
+export interface IMatchableLine {
+  readonly text: string;
+}
+
+/**
+ * Configuration options for the TextMatcher matching logic
+ */
+export interface TextMatcherOptions {
+  readonly activeIndex?: number;
+  readonly preWindow: number;     // Lines to search before activeIndex
+  readonly postWindow: number;    // Lines to search after activeIndex
+  readonly threshold: number;     // Minimum similarity (0-1) for a valid match
+  readonly weights: {
+    readonly maxPreWeight: number;  // Initial weight for previous lines (e.g., 1.5)
+    readonly maxPostWeight: number; // Initial weight for future lines (e.g., 2.0)
+  };
+}
+
+/**
+ * Result of a text matching operation
+ */
+export interface MatchResult {
+  readonly index: number;         // Index of the matched line, or -1 if no match
+  readonly score: number;         // The weighted similarity score
+  readonly rawScore: number;      // The unweighted phonetic similarity score
+}
+
+/**
+ * Selection state for line selection
+ */
+export interface SelectionState {
+  readonly currentLineId: string | null;
+  readonly selectedLineIds: readonly string[];
+  readonly highlights: readonly Highlight[];
+  readonly history: readonly string[];
+  readonly historyIndex: number;
+}
+
+/**
+ * Feature keybinding definition
+ */
+export interface KeyBinding {
+  readonly id: string;
+  readonly featureId: string;
+  readonly keys: readonly string[]; // e.g., ['space'], ['ctrl', 'shift', 'n']
+  readonly modifiers: {
+    readonly shift?: boolean;
+    readonly ctrl?: boolean;
+    readonly alt?: boolean;
+    readonly meta?: boolean;
+  };
+  readonly actionType: keyof typeof ACTION_TYPES; // The type of action to dispatch
+  readonly actionPayload?: any; // Optional payload to dispatch with the action
+  readonly isActive?: (context: any) => boolean; // Optional, to check if the keybinding is active in current context
+}
+
+/**
+ * Annotation definition for per-line feature configuration
+ */
+export interface Annotation {
+  readonly name: string;
+  readonly description: string;
+  readonly type: 'string' | 'number' | 'boolean' | 'enum' | 'color';
+  readonly defaultValue?: any;
+  readonly constraints?: {
+    readonly min?: number;
+    readonly max?: number;
+    readonly pattern?: string;
+    readonly enum?: readonly any[];
+  };
+  readonly parseValue: (value: string) => any;
+  readonly validateValue: (value: any) => boolean;
+}
+
+/**
+ * Rule for extracting metadata from line text using regex.
+ */
+export interface MetadataExtractionRule {
+  readonly lineType: LineType; // The line type this rule applies to
+  readonly pattern: string;    // The regex pattern to match against the line text
+  readonly mappings: Readonly<Record<string, string>>; // Mapping of metadata key to capture group (e.g., { characterName: '$1', dialogue: '$2' })
+}
+
+/**
+ * Widget types for modular line rendering
+ */
+export type LineWidgetType = 'toggle' | 'button' | 'timer' | 'progress';
+
+export interface LineWidget {
+  readonly type: LineWidgetType;
+  readonly id: string;
+  readonly icon?: string;
+  readonly label?: string;
+  readonly title?: string;
+  readonly props?: Readonly<Record<string, any>>;
+}
+
+/**
+ * Plugin feature definition
+ */
+export interface FeaturePlugin {
+  readonly id: string;
+  readonly name: string;
+  readonly version: string;
+  readonly description: string;
+  init(): Promise<void>;
+  destroy(): Promise<void>;
+  getKeybindings?(): KeyBinding[];
+  getAnnotations?(): Annotation[];
+  registerHighlightTypes?(registry: HighlightTypeRegistry): void;
+  /**
+   * Returns widgets to be rendered for a specific line in a specific view context.
+   */
+  getLineWidgets?(line: ScriptLineBase, view: 'main' | 'sidebar'): LineWidget[];
+}
+
+/**
+ * Highlight type registry for managing custom highlight types
+ */
+export interface HighlightTypeRegistry {
+  register(type: string, priority: number, style: HighlightStyle): void;
+  unregister(type: string): void;
+  get(type: string): HighlightStyle | undefined;
+  getAll(): Map<string, HighlightStyle>;
+}
+
+/**
+ * Visual style for a highlight type
+ */
+export interface HighlightStyle {
+  readonly backgroundColor?: string;
+  readonly color?: string;
+  readonly borderColor?: string;
+  readonly borderWidth?: string;
+  readonly opacity?: number;
+}
+
+/**
+ * Interface for an individual audio playback instance
+ */
+export interface AudioPlayOptions {
+  startTimeSeconds?: number;
+  endTimeSeconds?: number;
+  fadeInDurationMs?: number;
+  fadeOutDurationMs?: number;
+  panStart?: number;
+  panEnd?: number;
+}
+
+export interface IAudioPlayer {
+  readonly id: string;
+  readonly url: string;
+  readonly isLoaded: boolean;
+  readonly isPlaying: boolean;
+  readonly duration: number;
+  readonly loadStatus: 'idle' | 'loading' | 'decoding' | 'loaded' | 'error';
+  readonly loadProgress: number; // 0 to 100
+  readonly channelId?: string; // Associated channel ID
+  currentTime: number;
+  volume: number;
+  balance: number;
+
+  load(): Promise<void>;
+  play(options?: AudioPlayOptions): Promise<void>;
+  pause(): void;
+  stop(): void;
+  destroy(): void;
+  getBuffer(): AudioBuffer | null;
+
+  onPlay(callback: () => void): void;
+  onPause(callback: () => void): void;
+  onStop(callback: () => void): void;
+  onEnded(callback: () => void): void;
+  onError(callback: (error: Error) => void): void;
+  onLoadProgress(callback: (progress: number, status: string) => void): void;
+}
+
+/**
+ * Representation of a virtual audio mixing channel
+ */
+export interface IVirtualChannel {
+  readonly id: string;
+  readonly name: string;
+  readonly volume: number; // 0.0 to 1.0
+  readonly isMuted: boolean;
+  readonly outputDeviceId: string; // references deviceId
+}
+
+/**
+ * Representation of an available audio output device
+ */
+export interface IAudioOutputDevice {
+  readonly deviceId: string;
+  readonly label: string;
+}
+
+/**
+ * Configuration for basic cue behaviours (stop, end behaviour)
+ */
+export type EndBehaviour = 'none' | 'loop' | 'next-line' | 'next-cue' | 'jump-to';
+
+export interface BaseCue {
+  readonly stop?: string; // "all", "previous", or "[0001,0002]"
+  readonly endBehaviour?: EndBehaviour;
+  readonly loopCount?: number; // 0 for indefinite
+  readonly jumpRef?: string;   // Reference ID for 'jump-to' behaviour
+}
+
+/**
+ * Configuration for a specific sound cue
+ */
+export interface SoundCue extends BaseCue {
+  readonly id: string;
+  readonly url: string;
+  readonly name: string;
+  readonly volume: number; // 0-100
+  readonly pan: 'left' | 'right' | 'centre';
+  readonly panStart?: number; // -1.0 to 1.0, optional override for start balance
+  readonly panEnd?: number;   // -1.0 to 1.0, optional override for end balance
+  readonly startOffsetSeconds?: number;
+  readonly endOffsetSeconds?: number;
+  readonly fadeIn?: number; // ms
+  readonly fadeOut?: number; // ms
+  readonly channelId?: string; // Target virtual audio channel
+}
+
+/**
+ * Interface for document format parsers
+ */
+export interface IDocumentParser {
+  readonly format: 'DOCX' | 'ODT' | 'PDF' | 'XML';
+  parse(data: File | ArrayBuffer, fileName: string, config: any): Promise<Document>;
+}
+
+/**
+ * Standardized audio event types
+ */
+export const AUDIO_EVENT_TYPES = {
+  AUDIO_PLAYER_PLAYING: 'audio:playerPlaying',
+  AUDIO_PLAYER_PAUSED: 'audio:playerPaused',
+  AUDIO_PLAYER_STOPPED: 'audio:playerStopped',
+  AUDIO_PLAYER_LOADED: 'audio:playerLoaded',
+  AUDIO_PLAYER_ERROR: 'audio:playerError',
+  AUDIO_DEVICE_CHANGED: 'audio:deviceChanged',
+  AUDIO_DEVICES_UPDATED: 'audio:devicesUpdated',
+  AUDIO_GLOBAL_VOLUME_CHANGED: 'audio:globalVolumeChanged',
+  AUDIO_GLOBAL_MUTE_CHANGED: 'audio:globalMuteChanged',
+  AUDIO_ALL_PAUSED: 'audio:allPaused',
+  AUDIO_ALL_RESUMED: 'audio:allResumed',
+} as const;

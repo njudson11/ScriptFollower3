@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document-content xmlns:css3t="http://www.w3.org/TR/css3-text/"
+    xmlns:grddl="http://www.w3.org/2003/g/data-view#"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xforms="http://www.w3.org/2002/xforms"
+    xmlns:dom="http://www.w3.org/2001/xml-events"
+    xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+    xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+    xmlns:math="http://www.w3.org/1998/Math/MathML"
+    xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+    xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0"
+    xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+    xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0"
+    xmlns:officeooo="http://openoffice.org/2009/office"
+    xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+    xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+    xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0"
+    xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+    xmlns:rpt="http://openoffice.org/2005/report"
+    xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+    xmlns:tableooo="http://openoffice.org/2009/table"
+    xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+    xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2"
+    xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+    xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0"
+    xmlns:oooc="http://openoffice.org/2004/calc"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:drawooo="http://openoffice.org/2010/draw"
+    xmlns:ooow="http://openoffice.org/2004/writer"
+    xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+    xmlns:ooo="http://openoffice.org/2004/office"
+    xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:version="1.3">
+    <office:scripts/>
+    <office:font-face-decls>
+        <style:font-face style:name="Arial" svg:font-family="Arial" style:font-family-generic="swiss"/>
+        <style:font-face style:name="Arial1" svg:font-family="Arial" style:font-family-generic="system" style:font-pitch="variable"/>
+        <style:font-face style:name="Arial2" svg:font-family="Arial" style:font-adornments="Bold" style:font-family-generic="swiss" style:font-pitch="variable"/>
+        <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
+        <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
+        <style:font-face style:name="Microsoft YaHei" svg:font-family="&apos;Microsoft YaHei&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+        <style:font-face style:name="NSimSun" svg:font-family="NSimSun" style:font-family-generic="system" style:font-pitch="variable"/>
+        <style:font-face style:name="OpenSymbol" svg:font-family="OpenSymbol" style:font-charset="x-symbol"/>
+    </office:font-face-decls>
+    <office:automatic-styles>
+        <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Dialogue">
+            <style:text-properties officeooo:paragraph-rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Effect">
+            <style:text-properties officeooo:paragraph-rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="P3" style:family="paragraph" style:parent-style-name="Tech">
+            <style:text-properties officeooo:paragraph-rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="P4" style:family="paragraph" style:parent-style-name="Dialogue">
+            <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+        </style:style>
+        <style:style style:name="P5" style:family="paragraph" style:parent-style-name="Stage_20_Direction">
+            <style:text-properties fo:font-weight="bold" officeooo:paragraph-rsid="001f379c" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+        </style:style>
+        <style:style style:name="P6" style:family="paragraph" style:parent-style-name="Dialogue">
+            <style:paragraph-properties fo:margin-left="0.501cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+            <style:text-properties officeooo:rsid="001e031a" officeooo:paragraph-rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="P7" style:family="paragraph" style:parent-style-name="Stage_20_Direction">
+            <style:text-properties officeooo:rsid="001e031a" officeooo:paragraph-rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="P8" style:family="paragraph" style:parent-style-name="Light">
+            <style:text-properties officeooo:rsid="001e031a" officeooo:paragraph-rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="P9" style:family="paragraph" style:parent-style-name="Dialogue">
+            <style:text-properties officeooo:rsid="001e031a" officeooo:paragraph-rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="P10" style:family="paragraph" style:parent-style-name="Standard">
+            <style:text-properties officeooo:rsid="001bc839" officeooo:paragraph-rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="P11" style:family="paragraph" style:parent-style-name="Text_20_body">
+            <style:text-properties officeooo:rsid="00223e53" officeooo:paragraph-rsid="00223e53"/>
+        </style:style>
+        <style:style style:name="P12" style:family="paragraph" style:parent-style-name="Subtitle">
+            <style:text-properties officeooo:rsid="00270dcd" officeooo:paragraph-rsid="0028101f"/>
+        </style:style>
+        <style:style style:name="P13" style:family="paragraph" style:parent-style-name="Subtitle">
+            <style:text-properties officeooo:paragraph-rsid="0028101f"/>
+        </style:style>
+        <style:style style:name="P14" style:family="paragraph" style:parent-style-name="Curtains">
+            <style:text-properties officeooo:paragraph-rsid="002de1b1"/>
+        </style:style>
+        <style:style style:name="P15" style:family="paragraph" style:parent-style-name="Sound_20_B">
+            <style:text-properties officeooo:paragraph-rsid="002de1b1"/>
+        </style:style>
+        <style:style style:name="P16" style:family="paragraph" style:parent-style-name="Scene">
+            <style:paragraph-properties fo:break-before="page"/>
+        </style:style>
+        <style:style style:name="P17" style:family="paragraph" style:parent-style-name="Title" style:master-page-name="First_20_Page">
+            <style:paragraph-properties style:page-number="auto"/>
+            <style:text-properties officeooo:paragraph-rsid="0028101f"/>
+        </style:style>
+        <style:style style:name="P18" style:family="paragraph" style:parent-style-name="Character_20_List" style:list-style-name="List_20_1">
+            <style:paragraph-properties fo:margin-left="5.001cm" fo:text-indent="-5.001cm" style:auto-text-indent="false"/>
+        </style:style>
+        <style:style style:name="P19" style:family="paragraph" style:parent-style-name="Dialogue">
+            <style:text-properties officeooo:paragraph-rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="T1" style:family="text">
+            <style:text-properties officeooo:rsid="001f379c"/>
+        </style:style>
+        <style:style style:name="T2" style:family="text">
+            <style:text-properties officeooo:rsid="002181ef"/>
+        </style:style>
+        <style:style style:name="T3" style:family="text">
+            <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+        </style:style>
+        <style:style style:name="T4" style:family="text">
+            <style:text-properties fo:font-weight="bold" officeooo:rsid="002181ef" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+        </style:style>
+        <style:style style:name="T5" style:family="text">
+            <style:text-properties officeooo:rsid="0023779e"/>
+        </style:style>
+        <style:style style:name="T6" style:family="text">
+            <style:text-properties officeooo:rsid="002cb094"/>
+        </style:style>
+        <style:style style:name="T7" style:family="text">
+            <style:text-properties officeooo:rsid="002de1b1"/>
+        </style:style>
+        <style:style style:name="T8" style:family="text">
+            <style:text-properties officeooo:rsid="00349719"/>
+        </style:style>
+    </office:automatic-styles>
+    <office:body>
+        <office:text text:use-soft-page-breaks="true">
+            <office:forms form:automatic-focus="false" form:apply-design-mode="false"/>
+            <text:sequence-decls>
+                <text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
+                <text:sequence-decl text:display-outline-level="0" text:name="Table"/>
+                <text:sequence-decl text:display-outline-level="0" text:name="Text"/>
+                <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
+                <text:sequence-decl text:display-outline-level="0" text:name="Figure"/>
+            </text:sequence-decls>
+            <text:p text:style-name="P17">
+                <text:title>Stageplay Script</text:title>
+            </text:p>
+            <text:p text:style-name="P12">by</text:p>
+            <text:p text:style-name="P13">
+                <text:initial-creator>Nigel Judson</text:initial-creator>
+            </text:p>
+            <text:p text:style-name="Text_20_body"/>
+            <text:p text:style-name="Index_20_Heading">Characters</text:p>
+            <text:list text:style-name="List_20_1">
+                <text:list-item>
+                    <text:p text:style-name="P18">Name (Gender)<text:tab/>
+Description</text:p>
+                </text:list-item>
+            </text:list>
+            <text:p text:style-name="P11">See next page….</text:p>
+            <text:p text:style-name="Dialogue"/>
+            <text:h text:style-name="P16" text:outline-level="1">Pre-show</text:h>
+            <text:p text:style-name="Light">LIGHTS<text:tab/>
+House 100%</text:p>
+            <text:p text:style-name="Sound_20_A">SOUND<text:tab/>
+0001 – 0001 PreShow House.mp3</text:p>
+            <text:p text:style-name="Sound_20_A">SOUND<text:tab/>
+0002 – 5 minute warning</text:p>
+            <text:p text:style-name="Sound_20_A">SOUND<text:tab/>
+0003 – House Music, Warning Track 5mins</text:p>
+            <text:p text:style-name="Sound_20_A">SOUND<text:tab/>
+0004 – Show Start announcement</text:p>
+            <text:p text:style-name="Light">LIGHTS<text:tab/>
+House 50%</text:p>
+            <text:p text:style-name="Light">LIGHTS<text:tab/>
+Stage 100%</text:p>
+            <text:h text:style-name="Scene" text:outline-level="1">Act 1 Scene 1</text:h>
+            <text:p text:style-name="P4">Dialogue Style</text:p>
+            <text:p text:style-name="P9">Name<text:tab/>
+This is an example of some dialogue that would would see in a stage play. It automatically indents correctly.</text:p>
+            <text:p text:style-name="P1">
+                <text:tab/>
+                <text:span text:style-name="T5">To add a section section of dialogue for the same character you need to put a tab at the start of the paragraph but that is all. Word wrapping and indent is done automagically. </text:span>
+            </text:p>
+            <text:p text:style-name="Character1">Character 1<text:tab/>
+An example of a specific character style</text:p>
+            <text:p text:style-name="P6"/>
+            <text:p text:style-name="P5">Stage Direction <text:span text:style-name="T2">Style</text:span>
+            </text:p>
+            <text:p text:style-name="P7">
+                <text:span text:style-name="T8">(</text:span>This is an example of stage direction that would appear in a stage play script. It is in italic and formatted to sit towards the centre of the page.<text:span text:style-name="T8">)</text:span>
+            </text:p>
+            <text:p text:style-name="P7"/>
+            <text:p text:style-name="P3">Tech<text:tab/>
+            <text:span text:style-name="T1">Example tech cue.</text:span>
+        </text:p>
+        <text:p text:style-name="P8">Light<text:tab/>
+Example lighting cue. Stage Wash (100)</text:p>
+        <text:p text:style-name="Sound_20_A">Sound <text:span text:style-name="T7">A</text:span>
+            <text:tab/>
+SFX0101 – Filename.wav – Example sound cue.</text:p>
+        <text:p text:style-name="P15">Sound <text:span text:style-name="T6">B</text:span>
+            <text:tab/>
+0101 – Filename.wav – Example sound cue.</text:p>
+        <text:p text:style-name="P14">Curtains<text:tab/>
+Open/Close</text:p>
+        <text:p text:style-name="P2">Effect<text:tab/>
+        <text:span text:style-name="T1">Example Effect</text:span>
+    </text:p>
+    <text:p text:style-name="P10">
+        <text:span text:style-name="Inline_20_Stage_20_Direction"/>
+    </text:p>
+    <text:p text:style-name="P10">
+        <text:span text:style-name="Inline_20_Stage_20_Direction">
+            <text:span text:style-name="T3">Inline Stage Direction </text:span>
+        </text:span>
+        <text:span text:style-name="Inline_20_Stage_20_Direction">
+            <text:span text:style-name="T4">Character Style</text:span>
+        </text:span>
+    </text:p>
+    <text:p text:style-name="P10">
+        <text:span text:style-name="Inline_20_Stage_20_Direction"/>
+    </text:p>
+    <text:p text:style-name="P1">Name<text:tab/>
+This is a section of dialogue showing an example of <text:span text:style-name="Inline_20_Stage_20_Direction">inline stage direction</text:span>.
+</text:p>
+</office:text>
+</office:body>
+</office:document-content>
